@@ -42,14 +42,15 @@
   # should add correctly and list non private information
   add Adam Brown p/111111 e/adam@gmail.com a/111, alpha street
   list
-  add Betsy Choo pp/222222 pe/benchoo@nus.edu.sg pa/222, beta street t/secretive
+  add Esther Potato p/555555 e/esther@not.a.real.potato pa/555, epsilon street t/tubers t/starchy
   list
   add Charlie Dickson pp/333333 e/charlie.d@nus.edu.sg a/333, gamma street t/friends t/school
   list
+  add Betsy Choo pp/222222 pe/benchoo@nus.edu.sg pa/222, beta street t/secretive
+  list
   add Dickson Ee p/444444 pe/dickson@nus.edu.sg a/444, delta street t/friends
   list
-  add Esther Potato p/555555 e/esther@not.a.real.potato pa/555, epsilon street t/tubers t/starchy
-  list
+  sortedlist
 
   # should not allow adding duplicate persons
   add Esther Potato p/555555 e/esther@not.a.real.potato pa/555, epsilon street t/tubers t/starchy
@@ -110,7 +111,7 @@
 # test delete person command
 ##########################################################
 
-# last active view: [1] betsy [2] charlie
+# last active view: [1] charlie [2] betsy
 
   # should catch invalid args format
   delete
@@ -122,15 +123,15 @@
   delete 3
 
   # should catch attempt to delete something already deleted
-  delete 2
-  delete 2
+  delete 1
+  delete 1
 
   # should catch attempt to view something already deleted
-  view 2
-  viewall 2
+  view 1
+  viewall 1
 
   # should have deleted based on last active view's index
-  list
+  sortedlist
 
   # deletes correct person
   delete 4
